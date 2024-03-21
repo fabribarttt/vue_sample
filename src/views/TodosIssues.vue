@@ -7,7 +7,7 @@
     </form>
     <el-row :gutter="12">
       <!--  -->
-      <TodoItem v-for="( todo, index ) in todos" :key="index" />
+      <TodoItem v-for="( todo, index ) in todos" :key="index" :index="index" :todo="todo" @close-todo="removeTodo" />
       <!--  -->
       <el-col :span="12"  v-for="( issue, index ) in issues" :key="issue.id">
         <el-card class="box-card" shadow="hover" style="margin: 5px 0;">
