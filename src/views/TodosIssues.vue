@@ -5,13 +5,13 @@
     <form @submit.prevent="addTodo()">
       <el-input placeholder="todo" v-model="todo"></el-input>
     </form>
-    <el-row :gutter="12">
-      <!--  -->
-      <TodoItem v-for="( todo, index ) in todos" :key="index" :index="index" :todo="todo" @close-todo="removeTodo" />
-      <!--  -->
+    <el-row :gutter="12" class="issue-list">
+			<TodoItem v-for="( todo, index ) in todos" :key="index" :index="index" :todo="todo" @close-todo="completeTodo"/>
+		</el-row>
 
-      <TodoItem v-for="( issue, index ) in issues" :key="index" :index="index" :todo="issue.title" @close-todo="closeIssue" />
-    </el-row>
+		<el-row :gutter="12" class="issue-list">
+			<TodoItem v-for="( issue, index ) in issues" :key="index" :index="index" :todo="issue.title" @close-todo="closeIssue"  />
+		</el-row>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
       this.todos.push(this.todo);
       this.todo= '';
     },
-    removeTodo(index){
+    completeTodo(index){
       this.todos.splice(index, 1);
     },
     closeIssue(index){
