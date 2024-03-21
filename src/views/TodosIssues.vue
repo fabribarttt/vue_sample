@@ -9,11 +9,8 @@
       <!--  -->
       <TodoItem v-for="( todo, index ) in todos" :key="index" :index="index" :todo="todo" @close-todo="removeTodo" />
       <!--  -->
-        <el-card class="box-card" shadow="hover" style="margin: 5px 0;">
-            <TodoItem v-for="( todo, index ) in todos" :key="index" :index="index" :todo="todo" @close-todo="completeTodo" />
 
-            <TodoItem v-for="( issue, index ) in issues" :key="index" :index="index" :todo="issue.title" @close-todo="closeIssue" />
-        </el-card>
+      <TodoItem v-for="( issue, index ) in issues" :key="index" :index="index" :todo="issue.title" @close-todo="closeIssue" />
     </el-row>
   </div>
 </template>
